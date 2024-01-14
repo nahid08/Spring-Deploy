@@ -1,0 +1,39 @@
+version: "3"
+services:
+  deploy:
+    image: deploy
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+       aws.access.key.id: 'AKIAWOK7KL2NJVAAHTAX'
+       aws.secret.access.key: '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'
+       aws.s3.region: 'ap-south-1'
+       amazon.dynamodb.endpoint: 'dynamodb.ap-south-1.amazonaws.com'
+    depends_on:
+      - dynamo-db
+    networks:
+      - docker-network-1
+
+  dynamo-db:
+    image: amazon/dynamodb-local:latest
+    restart: always
+    expose:
+      - 8000
+    environment:
+      AWS_ACCESS_KEY_ID: 'AKIAWOK7KL2NJVAAHTAX'
+      AWS_SECRET_ACCESS_KEY: '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'
+      REGION: 'ap-south-1'
+      ENDPOINT: 'dynamodb.ap-south-1.amazonaws.com'
+
+    volumes:
+      - "./docker/dynamodb:/home/dynamodblocal/data"
+
+    command: "-jar DynamoDBLocal.jar -sharedDb -dbPath ./data"
+    networks:
+      - docker-network-1
+
+
+networks:
+  docker-network-1:
+

@@ -1,2 +1,6 @@
+D:\Personal-Project\deploy\src\main\java\com\example\deploy\service\TestService.java
 D:\Personal-Project\deploy\src\main\java\com\example\deploy\controller\TestController.java
 D:\Personal-Project\deploy\src\main\java\com\example\deploy\DeployApplication.java
+D:\Personal-Project\deploy\src\main\java\com\example\deploy\repositories\DRepository.java
+D:\Personal-Project\deploy\src\main\java\com\example\deploy\config\DynamoDBConfig.java
+D:\Personal-Project\deploy\src\main\java\com\example\deploy\model\Dynamo.java
